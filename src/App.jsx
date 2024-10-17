@@ -6,6 +6,7 @@ import About from './shared/ui/About'
 import FactorFRC from './pages/factor_frc/FactorFRC'
 
 
+
 function App() {
 
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/factorFRC" element={<FactorFRC />} />
+        {/* <Route path="/liquidez" element={<Liquidez />} /> */}
+
       </Routes>
     </>
   )
