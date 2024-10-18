@@ -41,7 +41,7 @@ function FactorFAS() {
                 <div className='grid grid-cols-2 gap-10 justify-center '>
                     <div className='flex flex-col gap-4 rounded-lg shadow-md py-8 px-2'>
                         <h2 className='text-3xl font-bold text-start text-[#00b140]'>¿Qué es?</h2>
-                        <p className=''>Métrica financiera que se utiliza para determinar la cantidad de ingresos anuales necesarios para recuperar la inversión inicial durante un período específico.</p>
+                        <p className=''>transforma una serie de pagos uniformes en un valor presente o capital inicial. Es exactamente la inversa del FRC.</p>
                         <br />
                         <h3 className='text-xl font-bold text-start text-[#00b140]'>Ejemplo Practico</h3>
                         <p>Supongamos que una empresa tecnológica necesita financiar un proyecto con <strong>pagos anuales de $15,000</strong>. El plazo del financiamiento es de <strong>5 años</strong> con una tasa de interés del <strong>4% anual</strong>. Se quiere saber el valor presente de estos pagos, es decir, cuánto se debe pedir prestado hoy (P).</p>
