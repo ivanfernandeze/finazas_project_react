@@ -1,5 +1,6 @@
 import React from 'react';
-
+import CardIntegrante from '../components/CardIntegrante';
+import { Typography, Card, CardBody } from "@material-tailwind/react";
 function Home() {
   const definiciones = [
     {
@@ -46,14 +47,13 @@ function Home() {
     title: {
       fontSize: '3.5rem',
       color: '#644BDB',
-      textShadow: '4px 4px 6px rgba(0,0,0,0.8)', // Sombra en el texto
       marginBottom: '20px',
     },
     subtitle: {
       fontSize: '1.5rem',
       marginBottom: '40px',
       color: '#644BDB',
-      textShadow: '2px 2px 4px rgba(0,0,0,0.5)', // Sombra en el subtítulo
+      
     },
     cardContainer: {
       display: 'flex',
@@ -92,10 +92,21 @@ function Home() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>¡Bienvenido a Microsoft!</h1>
-      <p style={styles.subtitle}>
-        Nos alegra que estés aquí. Aquí tienes algunas definiciones clave sobre fórmulas y ratios financieros.
-      </p>
+      <Typography
+        variant="h2"
+        color="blue-gray"
+        className="!text-2xl !leading-snug lg:!text-3xl "
+      >
+        Bienvenido a Microsoft
+      </Typography>
+      <Typography
+        variant="lead"
+        className="mt-2 max-w-lg !font-normal !text-gray-500 mb-14"
+      >
+        We&apos;re constantly trying to express ourselves and actualize our
+        dreams. If you have the opportunity to play this game of life you need
+        to appreciate every moment.
+      </Typography>
       <div style={styles.cardContainer}>
         {definiciones.map((definicion, index) => (
           <div
@@ -104,7 +115,9 @@ function Home() {
             onMouseOver={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
             onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
-            <img src={definicion.img} alt={definicion.titulo} style={styles.cardImage} />
+            <div className='flex items-center justify-center'>
+              <img src={definicion.img} alt={definicion.titulo} style={styles.cardImage} />
+            </div>
             <h2 style={styles.cardTitle}>{definicion.titulo}</h2>
             <p style={styles.cardDescription}>{definicion.descripcion}</p>
           </div>
