@@ -15,13 +15,15 @@ function App() {
       <NavBar />
 
       {/* CONTENIDO */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/factorFRC" element={<FactorFRC />} />
-        {/* <Route path="/liquidez" element={<Liquidez />} /> */}
+      <main className='w-[95%] mx-auto'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/factorFRC" element={<FactorFRC />} />
+          {/* <Route path="/liquidez" element={<Liquidez />} /> */}
 
-      </Routes>
+        </Routes>
+      </main>
     </>
   )
 }

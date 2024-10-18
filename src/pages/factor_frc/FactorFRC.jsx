@@ -2,12 +2,12 @@ import React from 'react'
 import { Typography } from '@material-tailwind/react'
 import { CardDefault } from './components/card'
 import Formula from './components/formula'
-import { ImputNumber } from './components/ImputNumber'
+import EvaluarFuncion from './components/EvaluarFuncion'
 
 function FactorFRC() {
     // alert('Factor FRC')
     return (
-        <>
+        <section className='flex flex-col items-center'>
             {/* <h1 className='text-5xl'>Factor de Recuperacion de Capital(FRC)</h1> */}
             <figure className="relative h-96 w-full">
                 <img
@@ -27,54 +27,48 @@ function FactorFRC() {
                     </Typography>
                 </figcaption>
             </figure>
-            <section className='w-full flex flex-col items-center'>
-                <div className='my-10'></div>
-                <div className='flex flex-col items-center gap-4 rounded-lg shadow-md w-max py-8 px-2'>
-                    <h2 className='text-3xl font-light'>Fórmula</h2>
-                    <div className='flex gap-4 items-center'>
-                        <Formula />
-                        <div className='text-4xl shadow-lg rounded-lg h-max  p-4 pr-8'>
-                            <p className='font-semibold text-xl text-gray-800'>Donde:</p>
-                            <ul className='text-lg'>
-                                <li>
-                                    <strong>R</strong> = valor uniforme de pago
-                                </li>
-                                <li>
-                                    <strong>P</strong> = valor presente
-                                </li>
-                                <li>
-                                    <strong>i</strong> = tasa de interes
-                                </li>
-                                <li>
-                                    <strong>n</strong> = numero de periodos
-                                </li>
-                            </ul>
+            <div className='my-10'></div>
+            <article className=''>
+                <div className='grid grid-cols-2 gap-10 justify-center '>
+                    <div className='flex flex-col items-center gap-4 rounded-lg shadow-md py-8 px-2'>
+                        <h2 className='text-3xl font-light'>Definición</h2>
+                        <p>es una métrica financiera que se utiliza para determinar la cantidad de ingresos anuales necesarios para recuperar la inversión inicial durante un período específico.</p>
+                    </div>
+                    <div className='flex flex-col items-center gap-4 rounded-lg shadow-md w-max py-8 px-2'>
+                        <h2 className='text-3xl font-light'>Fórmula</h2>
+                        <div className='flex gap-4 items-center'>
+                            <Formula />
+                            <div className='text-4xl shadow-lg rounded-lg h-max  p-4 pr-8'>
+                                <p className='font-semibold text-xl text-gray-800'>Donde:</p>
+                                <ul className='text-lg w-full'>
+                                    <li>
+                                        <strong>R</strong> = Valor uniforme de pago
+                                    </li>
+                                    <li>
+                                        <strong>P</strong> = Valor presente
+                                    </li>
+                                    <li>
+                                        <strong>i</strong> = Tasa de interés
+                                    </li>
+                                    <li>
+                                        <strong>n</strong> = Número de periodos
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
-
                 </div>
-                <div className='flex flex-col items-center gap-4 rounded-lg shadow-md w-max py-8 px-2'>
-                    <h2 className='text-3xl font-light'>Definición</h2>
-                    <div className='text-2xl shadow-lg rounded-lg h-max  p-4 pr-8'>
-                        <p className='font-semibold text-xl text-gray-800'>El Factor de Recuperación de Capital (FRC) es el valor uniforme de pago que se debe realizar en un periodo determinado para recuperar el valor presente de una inversión.</p>
-                    </div>
-                </div>
+                <div className='my-10'></div>
+
                 <div>
-                    <h2 className='text-3xl font-light'>Calculadora</h2>
-                    <div className='my-10'></div>
-                    <div className='flex gap-4'>
-                        <ImputNumber label="Valor Presente"></ImputNumber>
-                        <ImputNumber label="Tasa de Interes"></ImputNumber>
-                        <ImputNumber label="Número de Periodos"></ImputNumber>
-                    </div>
-
+                    <h2 className='text-3xl font-light text-center'>Calculadora</h2>
+                    <EvaluarFuncion></EvaluarFuncion>
                 </div>
-            </section >
+            </article >
 
             {/* <CardDefault src="/FRC/finanzas.webp" title="hola" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non enim dignissimos, atque voluptate aliquid et in natus provident iste voluptatibus iusto velit esse ab saepe nesciunt, explicabo incidunt suscipit. A.
 Voluptate similique velit, rerum veritatis ipsam odio excepturi, ipsum autem atque provident ex non odit! Veritatis voluptas, beatae culpa omnis, quo in placeat, qui consequuntur architecto iste quidem quae quaerat."></CardDefault> */}
-        </>
+        </section>
     )
 }
 
