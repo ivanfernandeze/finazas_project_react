@@ -44,6 +44,9 @@ function FactorFSA() {
                     <Typography className='mb-4'>
                         El factor de actualización se define como el número de veces que una cantidad determinada de un bien ha visto crecer su valor, en un determinado periodo de tiempo, debido a la inflación.
                     </Typography>
+                    <Typography className='mb-4'>
+                        FSA = F/(1 + i)^n
+                    </Typography>
                     < FormFSA />
                 </CardBody>
             </Card>

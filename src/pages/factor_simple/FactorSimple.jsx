@@ -41,9 +41,12 @@ function FactorSimple() {
                     <Typography className='mb-4'>
                         Es el proceso mediante el cual los intereses producidos por un valor presente se adicionan a éste, al final de cada período, conformando un nuevo capital para el siguiente período y repitiéndose el proceso hasta el final del plazo.
                     </Typography>
+                    <Typography className='mb-4'>
+                        FSC = P(1 + i)^n
+                    </Typography>
                     < FormFactorSimple />
                 </CardBody>
-            </Card>
+            </Card>            
         </div>
     </section>
   )
