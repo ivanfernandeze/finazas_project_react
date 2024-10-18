@@ -30,7 +30,11 @@ const menuItemRatio = [
   {
     title: "Rendimiento",
     path: "/rendimiento"
-  }
+  },
+  {
+    title: "Gestion",
+    path: "/RatioGestion"
+  },
 ]
 
 const menuItemFormulas = [
@@ -88,18 +92,18 @@ function NavListMenu({ menuItems, titleMenu }) {
               strokeWidth={2.5}
               className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
                 }`}
-            />
-          </ListItem>
-        </Typography>
-      </MenuHandler>
-      <MenuList className="px-2 py-4 border block space-y-2 w-auto" >
-        {menuItems.map((item, index) => (
-          <a href={item.path}>
-            <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start" >{item.title}</MenuItem>
-          </a>
-        ))}
-      </MenuList>
-    </Menu>
+              />
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList className="px-2 py-4 border block space-y-2 w-auto" >
+          {menuItems.map((item, index) => (
+            <Link to={item.path} key={index}>
+              <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start" >{item.title}</MenuItem>
+            </Link>
+          ))}
+        </MenuList>
+      </Menu>
   )
 }
 

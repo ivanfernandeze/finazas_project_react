@@ -9,6 +9,8 @@ import FactorFCS from "./pages/factor_fcs/FactorFCS";
 import FactorFDA from "./pages/factor_fda/FactorFDA";
 import FactorSimple from './pages/factor_simple/FactorSimple'
 import FactorSA from './pages/factor_SA/FactorFSA'
+import RatioGestion from './pages/ratio_gestion/RatioGestion'
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
   
         <Route path="/factorFSC" element={<FactorSimple />} />
         <Route path="/factorFSA" element={<FactorSA />} />
+        <Route path="/RatioGestion" element={<RatioGestion />} />
       </Routes>
       </main>
     </>

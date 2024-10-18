@@ -1,8 +1,8 @@
-import { HfInference } from "@huggingface/inference"
+import { HfInference } from "@huggingface/inference";
 
-const HF_ACCES_TOKEN = "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"
-const inference = new HfInference(HF_ACCES_TOKEN)
-const modelo = "microsoft/Phi-3-mini-4k-instruct"
+const HF_ACCES_TOKEN = "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";
+const inference = new HfInference(HF_ACCES_TOKEN);
+const modelo = "microsoft/Phi-3-mini-4k-instruct";
 
 /**
  * Función para realizar la solicitud de chat de forma continua (streaming) usando Hugging Face.
@@ -29,11 +29,3 @@ export async function streamChatCompletion(messages, maxTokens = 500, use_cache 
     }
     return fullMessage; // Retornamos el mensaje completo generado por el modelo
 }
-
-const mensajes = [{ role: "user", content: "What is the capital of France?" }];
-
-async function main() {
-    const respuesta = await streamChatCompletion(mensajes);
-    console.log(respuesta);
-}
-
