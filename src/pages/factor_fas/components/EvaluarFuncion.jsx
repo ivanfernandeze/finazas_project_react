@@ -40,7 +40,7 @@ function EvaluarFuncion({ ejemplo }) {
         console.log(A);
         // 3. Calcular el Numerador B = A - 1
         const B = evaluate(`${A} - 1`);
-        const step3 = {
+        const step2 = {
             part: "Calcular el Numerador",
             base: 'B = A - 1',
             equation: `B = ${parseFloat(A).toFixed(decimales)} - 1`,
@@ -49,7 +49,7 @@ function EvaluarFuncion({ ejemplo }) {
         console.log(B);
         // 3. Calcular el Denominador C = A*i
         const C = evaluate(`${A} * ${i}`);
-        const step2 = {
+        const step3 = {
             part: "Calcular el Denominador",
             base: 'C = A * i',
             equation: `C = ${parseFloat(A).toFixed(decimales)} * ${i}`,
@@ -58,7 +58,7 @@ function EvaluarFuncion({ ejemplo }) {
         console.log(C);
 
         // 4. Calcular R = R * (B / C)
-        const P = evaluate(`${R} * (${parseFloat(B).toFixed(decimales)} / ${parseFloat(C).toFixed(decimales)})`);
+        const P = evaluate(`${R} * (${B} / ${C})`);
         const step4 = {
             part: "Multiplicar por P la fracción",
             base: 'P = R * \\frac{B}{C}',
@@ -94,7 +94,7 @@ function EvaluarFuncion({ ejemplo }) {
                         <p>Resultado: {parseFloat(step.result).toFixed(decimales)}</p>
                     </div>
                 ))}
-                {steps.length > 0 ? <p className='mt-4 font-semibold text-xl'>El valor de la serie uniforme es {parseFloat(steps[steps.length - 1].result).toFixed(decimales)}</p> : null}
+                {steps.length > 0 ? <p className='mt-4 font-semibold text-xl'>El valor presente es {parseFloat(steps[steps.length - 1].result).toFixed(decimales)}</p> : null}
             </div>
         </div >
     );

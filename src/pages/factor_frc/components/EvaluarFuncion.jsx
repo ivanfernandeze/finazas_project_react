@@ -57,7 +57,7 @@ function EvaluarFuncion({ ejemplo }) {
         };
         console.log(C);
         // 4. Calcular R = P * (B / C)
-        const R = evaluate(`${P} * (${parseFloat(B).toFixed(decimales)} / ${parseFloat(C).toFixed(decimales)})`);
+        const R = evaluate(`${P} * (${B} / ${C})`);
         const step4 = {
             part: "Multiplicar por P la fracción",
             base: 'R = P * \\frac{B}{C}',

@@ -26,7 +26,7 @@ function FactorFAS() {
                 />
                 <figcaption className="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
                     <div>
-                        <Typography variant='h1' color='green' textGradient>Factor de Actualizacion de la Serie(FAS)</Typography>
+                        <Typography variant='h1' color='green' textGradient>Factor de Actualizacion de la Serie - FAS</Typography>
                         <Typography color="gray" className="mt-2 font-normal">
                             Ciclo VI - 2024
                         </Typography>
