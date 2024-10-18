@@ -52,11 +52,11 @@ const menuItemFormulas = [
   },
   {
     title: "FCS",
-    path: "/formulas5"
+    path: "/factorFCS"
   },
   {
     title: "FDA",
-    path: "/formulas6"
+    path: "/factorFDA"
   },
 ]
 
