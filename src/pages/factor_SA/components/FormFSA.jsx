@@ -28,16 +28,19 @@ function FormFSA() {
         <Input
           label="Valor Final (F)"
           value={valorFinal}
+          type='number'
           onChange={(e) => setValorFinal(e.target.value)}
         />
         <Input
           label="Periodo de Capitalización (n)"
           value={periodo}
+          type='number'
           onChange={(e) => setPeriodo(e.target.value)}
         />
         <Input
           label="Tasa de Interés (%)"
           value={tasaInteres}
+          type='number'
           onChange={(e) => setTasaInteres(e.target.value)}
         />
       </div>

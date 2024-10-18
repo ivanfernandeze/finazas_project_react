@@ -31,16 +31,19 @@ function FormFactorSimple() {
         <Input
           label="Valor Actual (P)"
           value={valorActual}
+          type='number'
           onChange={(e) => setValorActual(e.target.value)}
         />
         <Input
           label="Periodo de Capitalización (n)"
           value={periodo}
+          type='number'
           onChange={(e) => setPeriodo(e.target.value)}
         />
         <Input
           label="Tasa de Interés (%)"
           value={tasaInteres}
+          type='number'
           onChange={(e) => setTasaInteres(e.target.value)}
         />
       </div>
