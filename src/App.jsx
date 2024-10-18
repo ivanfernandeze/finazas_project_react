@@ -10,6 +10,7 @@ import FactorFDA from "./pages/factor_fda/FactorFDA";
 import FactorSimple from './pages/factor_simple/FactorSimple'
 import FactorSA from './pages/factor_SA/FactorFSA'
 import RatioGestion from './pages/ratio_gestion/RatioGestion'
+import RatioRentabilidad from './pages/ratio_rentabilidad/RatioRentabilidad'
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
         <Route path="/factorFSC" element={<FactorSimple />} />
         <Route path="/factorFSA" element={<FactorSA />} />
         <Route path="/RatioGestion" element={<RatioGestion />} />
+
+        <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
       </Routes>
       </main>
     </>
