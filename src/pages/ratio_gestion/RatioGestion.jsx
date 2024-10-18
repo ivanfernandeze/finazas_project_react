@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FormulaCard from "./components/Card";
 
 function RatioGestion() {
-  // Guardar los resultados de cada cálculo
   const [resultados, setResultados] = useState({
     cxc: null,
     promCobro: null,
     cxp: null,
   });
 
-  // Funciones para calcular los ratios
+  // Funciones de cálculo
   const calcularRotacionCXC = (ventas, promedioClientes) => {
     if (ventas && promedioClientes && promedioClientes !== 0) {
       return (ventas / promedioClientes).toFixed(2);
@@ -31,32 +30,43 @@ function RatioGestion() {
     return null;
   };
 
-  // Función para manejar el cálculo y actualizar resultados
-  const handleCalcular = () => {
+  // Manejar cálculos para cada ratio
+  const handleCalcularCXC = () => {
     const ventas = parseFloat(document.getElementById("ventas").value);
     const promedioClientes = parseFloat(document.getElementById("promedioClientes").value);
+
+    if (!isNaN(ventas) && !isNaN(promedioClientes)) {
+      const rotacionCXC = calcularRotacionCXC(ventas, promedioClientes);
+      setResultados(prev => ({ ...prev, cxc: rotacionCXC }));
+    } else {
+      alert("Por favor, ingresa valores válidos para ventas y promedio de clientes.");
+    }
+  };
+
+  const handleCalcularPeriodoPromCobro = () => {
+    const rotacionCXC = resultados.cxc;
+    if (rotacionCXC) {
+      const promCobro = calcularPeriodoPromedioCobro(rotacionCXC);
+      setResultados(prev => ({ ...prev, promCobro: promCobro }));
+    } else {
+      alert("Primero calcula la rotación de CxC.");
+    }
+  };
+
+  const handleCalcularCXP = () => {
     const comprasCredito = parseFloat(document.getElementById("comprasCredito").value);
     const promedioProveedores = parseFloat(document.getElementById("promedioProveedores").value);
 
-    // Validar si los valores son números
-    if (!isNaN(ventas) && !isNaN(promedioClientes) && !isNaN(comprasCredito) && !isNaN(promedioProveedores)) {
-      const rotacionCXC = calcularRotacionCXC(ventas, promedioClientes);
-      const promCobro = calcularPeriodoPromedioCobro(rotacionCXC);
+    if (!isNaN(comprasCredito) && !isNaN(promedioProveedores)) {
       const rotacionCXP = calcularRotacionCXP(comprasCredito, promedioProveedores);
-
-      setResultados({
-        cxc: rotacionCXC,
-        promCobro: promCobro,
-        cxp: rotacionCXP,
-      });
+      setResultados(prev => ({ ...prev, cxp: rotacionCXP }));
     } else {
-      alert("Por favor, ingresa valores numéricos válidos en todos los campos.");
+      alert("Por favor, ingresa valores válidos para compras al crédito y promedio de proveedores.");
     }
   };
 
   return (
     <div className="p-8">
-      {/* Sección con la imagen de fondo */}
       <div
         className="relative h-96 bg-cover bg-center"
         style={{ backgroundImage: `url('https://www.esan.edu.pe/images/blog/20221109/ZXGs25.png')` }}
@@ -67,69 +77,84 @@ function RatioGestion() {
         </div>
       </div>
 
-      {/* Sección para ingresar datos */}
-      <div className="mt-6">
-        <h2 className="text-xl font-bold mb-4">Ingresar datos para calcular los ratios</h2>
-        <div className="grid grid-cols-1 gap-4">
-          {/* Entradas para calcular la Rotación de Cuentas por Cobrar */}
-          <div className="flex flex-col">
-            <label htmlFor="ventas" className="font-semibold">Ventas:</label>
-            <input id="ventas" type="number" className="border p-2 rounded" placeholder="Ingrese ventas" />
+      <div className="flex flex-col items-center gap-6 mt-6">
+        {/* Primera Card - Rotación CxC */}
+        <div className="flex items-center">
+          <FormulaCard
+            title="1. Rotación de CxC"
+            formula="Ventas / Promedio cta clientes"
+            description="Este ratio calcula el número de veces que han sido renovadas las cuentas por cobrar."
+            imageUrl="https://noticierocontable.com/wp-content/uploads/2021/04/Rotacion-de-cuentas-por-cobrar-.jpg.webp"
+          />
+          <div className="ml-8">
+            <div className="flex flex-col">
+              <label htmlFor="ventas" className="font-semibold">Ventas:</label>
+              <input id="ventas" type="number" className="border p-2 rounded" placeholder="Ingrese ventas" />
+            </div>
+            <div className="flex flex-col mt-2">
+              <label htmlFor="promedioClientes" className="font-semibold">Promedio cta clientes:</label>
+              <input id="promedioClientes" type="number" className="border p-2 rounded" placeholder="Ingrese promedio cta clientes" />
+            </div>
+            <button
+              onClick={handleCalcularCXC}
+              className="bg-blue-500 text-white p-2 rounded mt-4"
+            >
+              Calcular Rotación CxC
+            </button>
+            <div className="font-semibold text-xl mt-2">
+              Resultado: {resultados.cxc || "Esperando datos"}
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label htmlFor="promedioClientes" className="font-semibold">Promedio de cuentas por cobrar (Clientes):</label>
-            <input id="promedioClientes" type="number" className="border p-2 rounded" placeholder="Ingrese promedio cta clientes" />
-          </div>
-          {/* Entradas para calcular la Rotación de Cuentas por Pagar */}
-          <div className="flex flex-col">
-            <label htmlFor="comprasCredito" className="font-semibold">Compras al crédito:</label>
-            <input id="comprasCredito" type="number" className="border p-2 rounded" placeholder="Ingrese compras al crédito" />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="promedioProveedores" className="font-semibold">Promedio de cuentas por pagar (Proveedores):</label>
-            <input id="promedioProveedores" type="number" className="border p-2 rounded" placeholder="Ingrese promedio cta proveedores" />
-          </div>
-
-          {/* Botón para calcular */}
-          <button
-            onClick={handleCalcular}
-            className="bg-blue-500 text-white p-2 rounded mt-4"
-          >
-            Calcular Ratios
-          </button>
-        </div>
-      </div>
-
-      {/* Sección de resultados y tarjetas con los ratios */}
-      <div className="flex flex-col gap-6 mt-6">
-        <FormulaCard
-          title="1. Rotación de CxC"
-          formula="Ventas / Promedio cta clientes"
-          description="Este ratio calcula el número de veces que han sido renovadas las cuentas por cobrar."
-          imageUrl="https://noticierocontable.com/wp-content/uploads/2021/04/Rotacion-de-cuentas-por-cobrar-.jpg.webp"
-        />
-        <div className="font-semibold text-xl">
-          Resultado de Rotación de CxC: {resultados.cxc || "Esperando datos"}
         </div>
 
-        <FormulaCard
-          title="2. Periodo Prom Cobro"
-          formula="360 / Rotación de CxC"
-          description="Este índice pondera el número de días que dichas cuentas se convierten en efectivo."
-          imageUrl="https://noticierocontable.com/wp-content/uploads/2021/04/Periodo-Promedio-de-Cobro.jpg.webp"
-        />
-        <div className="font-semibold text-xl">
-          Resultado de Periodo Promedio de Cobro: {resultados.promCobro || "Esperando datos"}
+        {/* Segunda Card - Periodo Promedio Cobro */}
+        <div className="flex items-center flex-row-reverse">
+          <FormulaCard
+            title="2. Periodo Prom Cobro"
+            formula="360 / Rotación de CxC"
+            description="Este índice pondera el número de días que dichas cuentas se convierten en efectivo."
+            imageUrl="https://noticierocontable.com/wp-content/uploads/2021/04/Periodo-Promedio-de-Cobro.jpg.webp"
+          />
+          <div className="mr-8">
+            <button
+              onClick={handleCalcularPeriodoPromCobro}
+              className="bg-blue-500 text-white p-2 rounded mt-4"
+            >
+              Calcular Periodo Promedio de Cobro
+            </button>
+            <div className="font-semibold text-xl mt-2">
+              Resultado: {resultados.promCobro || "Esperando datos"}
+            </div>
+          </div>
         </div>
 
-        <FormulaCard
-          title="3. Rotación de CxP"
-          formula="Compras al crédito / Promedio cta proveedores"
-          description="Este ratio calcula el número de veces que han sido renovadas las cuentas por pagar."
-          imageUrl="https://noticierocontable.com/wp-content/uploads/2021/04/Rotacion-de-Cuentas-por-Pagar.jpg.webp"
-        />
-        <div className="font-semibold text-xl">
-          Resultado de Rotación de CxP: {resultados.cxp || "Esperando datos"}
+        {/* Tercera Card - Rotación CxP */}
+        <div className="flex items-center">
+          <FormulaCard
+            title="3. Rotación de CxP"
+            formula="Compras al crédito / Promedio cta proveedores"
+            description="Este ratio calcula el número de veces que han sido renovadas las cuentas por pagar."
+            imageUrl="https://noticierocontable.com/wp-content/uploads/2021/04/Rotacion-de-Cuentas-por-Pagar.jpg.webp"
+          />
+          <div className="ml-8">
+            <div className="flex flex-col">
+              <label htmlFor="comprasCredito" className="font-semibold">Compras al crédito:</label>
+              <input id="comprasCredito" type="number" className="border p-2 rounded" placeholder="Ingrese compras al crédito" />
+            </div>
+            <div className="flex flex-col mt-2">
+              <label htmlFor="promedioProveedores" className="font-semibold">Promedio cta proveedores:</label>
+              <input id="promedioProveedores" type="number" className="border p-2 rounded" placeholder="Ingrese promedio cta proveedores" />
+            </div>
+            <button
+              onClick={handleCalcularCXP}
+              className="bg-blue-500 text-white p-2 rounded mt-4"
+            >
+              Calcular Rotación CxP
+            </button>
+            <div className="font-semibold text-xl mt-2">
+              Resultado: {resultados.cxp || "Esperando datos"}
+            </div>
+          </div>
         </div>
       </div>
     </div>
