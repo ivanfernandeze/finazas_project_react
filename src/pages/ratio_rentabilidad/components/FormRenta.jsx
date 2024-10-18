@@ -33,6 +33,7 @@ export function FormRenta({ setInterpretacion, formula}) {
         {formula? formula.numerador : "Numerador"}
       </Typography>
       <Input
+        type="number"
         size="lg"
         placeholder="utilidad neta"
         onChange={(e) => setUtilidadNeta(Number(e.target.value))}
@@ -45,6 +46,7 @@ export function FormRenta({ setInterpretacion, formula}) {
         {formula? formula.denominador : "Denominador"}  
       </Typography>
       <Input
+        type="number"
         size="lg"
         placeholder="vemtas metas"
         onChange={(e) => setVentasNetas(Number(e.target.value))}

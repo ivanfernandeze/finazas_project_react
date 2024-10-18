@@ -31,6 +31,7 @@ export function FormSolvencia({ setInterpretacion, formula}) {
         {formula? formula.numerador : "Numerador"}
       </Typography>
       <Input
+        type="number"
         size="lg"
         placeholder = {formula? formula.numerador : "Numerador"}
         onChange={(e) => setUtilidadNeta(Number(e.target.value))}
@@ -43,6 +44,7 @@ export function FormSolvencia({ setInterpretacion, formula}) {
         {formula? formula.denominador : "Denominador"}  
       </Typography>
       <Input
+        type="number"
         size="lg"
         placeholder={formula? formula.denominador : "Denominador"} 
         onChange={(e) => setVentasNetas(Number(e.target.value))}
