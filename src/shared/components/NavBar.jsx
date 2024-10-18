@@ -35,62 +35,78 @@ const menuItemRatio = [
 
 const menuItemFormulas = [
   {
-    title: "Formulas 1",
-    path: "/formulas1"
+    title: "FSC",
+    path: "/factorFRC"
   },
   {
-    title: "Formulas 2",
-    path: "/formulas2"
-  }
+    title: "FSA",
+    path: "/factorFRC"
+  },
+  {
+    title: "FRC",
+    path: "/factorFRC"
+  },
+  {
+    title: "FAS",
+    path: "/factorFAS"
+  },
+  {
+    title: "FCS",
+    path: "/formulas5"
+  },
+  {
+    title: "FDA",
+    path: "/formulas6"
+  },
 ]
 
-function NavListMenu({menuItems, titleMenu}) {
+function NavListMenu({ menuItems, titleMenu }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   return (
     <Menu
-        open={isMenuOpen}
-        handler={setIsMenuOpen}
-        placement="bottom"
-        allowHover={true}
-      >
-        <MenuHandler>
-          <Typography as="div">
-            <ListItem
-              className="flex items-center gap-2 px-4 py-1 hover:bg-gray-100 text-gray-900"
-              selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
-            >
-              {titleMenu}
-              <ChevronDownIcon
-                strokeWidth={2.5}
-                className={`hidden h-3 w-3 transition-transform lg:block ${
-                  isMenuOpen ? "rotate-180" : ""
+      open={isMenuOpen}
+      handler={setIsMenuOpen}
+      placement="bottom"
+      allowHover={true}
+    >
+      <MenuHandler>
+        <Typography as="div">
+          <ListItem
+            className="flex items-center gap-2 px-4 py-1 hover:bg-gray-100 text-gray-900"
+            selected={isMenuOpen || isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+          >
+            {titleMenu}
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
                 }`}
-              />
-              <ChevronDownIcon
-                strokeWidth={2.5}
-                className={`block h-3 w-3 transition-transform lg:hidden ${
-                  isMobileMenuOpen ? "rotate-180" : ""
+            />
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
                 }`}
-              />
-            </ListItem>
-          </Typography>
-        </MenuHandler>
-        <MenuList className="px-2 py-4 border block space-y-2 w-auto" >
-          {menuItems.map((item, index) => (
-            <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start">{item.title}</MenuItem>
-          ))}
-        </MenuList>
-      </Menu>
+            />
+          </ListItem>
+        </Typography>
+      </MenuHandler>
+      <MenuList className="px-2 py-4 border block space-y-2 w-auto" >
+        {menuItems.map((item, index) => (
+          <a href={item.path}>
+            <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start" >{item.title}</MenuItem>
+          </a>
+        ))}
+      </MenuList>
+    </Menu>
   )
 }
 
 function NavBar() {
   return (
     <nav className='px-10 py-4 flex justify-between items-center'>
-      
+
       <div>
         <Link to='/' className="text-xl font-semibold">Grupo Microsoft</Link>
       </div>
@@ -101,14 +117,14 @@ function NavBar() {
           </ListItem>
         </li>
         <li>
-          <NavListMenu menuItems={menuItemRatio} titleMenu={"Ratios"}/>
+          <NavListMenu menuItems={menuItemRatio} titleMenu={"Ratios"} />
         </li>
         <li>
-          <NavListMenu menuItems={menuItemFormulas} titleMenu={"Formulas"}/>
+          <NavListMenu menuItems={menuItemFormulas} titleMenu={"Formulas"} />
         </li>
         <li>
           <ListItem className="px-4 py-1 hover:bg-gray-100 text-gray-900">
-            <Link to='/about'>Informacion Microsoft</Link>
+            <Link to='/about'>Contáctanos</Link>
           </ListItem>
         </li>
       </ul>
