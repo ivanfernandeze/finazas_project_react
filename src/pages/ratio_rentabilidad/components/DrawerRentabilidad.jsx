@@ -24,7 +24,7 @@ export function DrawerRentabilidad({nombreRatio, descripciones}) {
  
   return (
     <React.Fragment className="static top-0">
-      <div className="flex flex-wrap gap-4 items-center">
+      <div className="flex flex-wrap gap-4 items-center pt-4">
         <h1 className='text-2xl font-bold'>Rentabilidad</h1>
         <Button className="px-5 py-3" onClick={openDrawerBottom}>¿? </Button>
       </div>

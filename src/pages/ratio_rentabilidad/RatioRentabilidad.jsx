@@ -51,8 +51,8 @@ function RatioRentabilidad() {
     
     <section >
       <div style={{backgroundImage: `url(${ImageRentabilidad})`}} className='h-[30svh] bg-cover bg-no-repeat'></div>
+      <DrawerRentabilidad {...DrawerVentas}/>
       <section className='p-4 space-y-10'>
-        <DrawerRentabilidad {...DrawerVentas}/>
         <CardRentabilidad {...rentabilidadVentas}/>
         <CardRentabilidad {...rentabilidadActivo}/>
         <CardRentabilidad {...rentabilidadPatrimonio}/>

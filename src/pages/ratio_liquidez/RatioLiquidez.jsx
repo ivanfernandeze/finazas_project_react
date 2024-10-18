@@ -52,8 +52,8 @@ function RatioLiquidez() {
     
     <section >
       <div style={{backgroundImage: `url(${ImageLiquidez})`}} className='h-[30svh] bg-cover bg-no-repeat'></div>
+      <DrawerLiquidez {...drawerLiquidezData}/>
       <section className='p-4 space-y-10'>
-        <DrawerLiquidez {...drawerLiquidezData}/>
         <CardLiquidez {...liquidezGeneral}/>
         <CardLiquidez {...pruebaAcida}/>
         <CardLiquidez {...liquidezCaja}/>

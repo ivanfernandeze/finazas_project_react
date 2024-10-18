@@ -53,8 +53,8 @@ function RatioSolvencia() {
     
     <section >
       <div style={{backgroundImage: `url(${ImageSolvencia})`}} className='h-[30svh] bg-cover bg-no-repeat'></div>
+      <DrawerSolvencia {...drawerSolvenciaData}/>
       <section className='p-4 space-y-10'>
-        <DrawerSolvencia {...drawerSolvenciaData}/>
         <CardSolvencia {...coberturaGastoInteres}/>
         <CardSolvencia {...coberturaInteresesFlujoCaja}/>
         <CardSolvencia {...coberturaActivoNoCorriente}/>
