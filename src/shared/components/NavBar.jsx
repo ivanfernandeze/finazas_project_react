@@ -36,11 +36,11 @@ const menuItemRatio = [
 const menuItemFormulas = [
   {
     title: "FSC",
-    path: "/factorFRC"
+    path: "/factorFSC"
   },
   {
     title: "FSA",
-    path: "/factorFRC"
+    path: "/factorFSA"
   },
   {
     title: "FRC",
