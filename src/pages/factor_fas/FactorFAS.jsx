@@ -4,13 +4,13 @@ import Formula from './components/formula';
 import EvaluarFuncion from './components/EvaluarFuncion';
 import { Button } from "@material-tailwind/react";
 
-function FactorFRC() {
+function FactorFAS() {
     const [ejemplo, setEjemplo] = React.useState(null);
     const handleExample = () => {
         const ejemplo = {
-            P: 100000,
-            i: 0.06,
-            n: 8,
+            R: 15000,
+            i: 0.04,
+            n: 5,
             decimales: 2
         };
         setEjemplo(ejemplo);
@@ -26,7 +26,7 @@ function FactorFRC() {
                 />
                 <figcaption className="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
                     <div>
-                        <Typography variant='h1' color='green' textGradient>Factor de Recuperacion de Capital(FRC)</Typography>
+                        <Typography variant='h1' color='green' textGradient>Factor de Actualizacion de la Serie(FAS)</Typography>
                         <Typography color="gray" className="mt-2 font-normal">
                             Ciclo VI - 2024
                         </Typography>
@@ -44,8 +44,7 @@ function FactorFRC() {
                         <p className=''>Métrica financiera que se utiliza para determinar la cantidad de ingresos anuales necesarios para recuperar la inversión inicial durante un período específico.</p>
                         <br />
                         <h3 className='text-xl font-bold text-start text-[#00b140]'>Ejemplo Practico</h3>
-                        <p>Una empresa está considerando una inversión en infraestructura tecnológica para mejorar la eficiencia operativa y la seguridad de sus sistemas. El departamento de TI propone adquirir servidores nuevos, mejorar el almacenamiento en la nube y actualizar la red interna. El costo total del proyecto es de <strong>$100,000 (valor presente)</strong>.
-                            La empresa espera financiar esta inversión a una tasa de interés del <strong>6% anual (tasa de interés)</strong>. El proyecto tiene una vida útil estimada de <strong> 8 años (número de periodos)</strong>.</p>
+                        <p>Supongamos que una empresa tecnológica necesita financiar un proyecto con <strong>pagos anuales de $15,000</strong>. El plazo del financiamiento es de <strong>5 años</strong> con una tasa de interés del <strong>4% anual</strong>. Se quiere saber el valor presente de estos pagos, es decir, cuánto se debe pedir prestado hoy (P).</p>
                         <div className='w-full flex justify-center'>
                             <Button onClick={handleExample}>Resolver</Button>
                         </div>
@@ -88,4 +87,4 @@ Voluptate similique velit, rerum veritatis ipsam odio excepturi, ipsum autem atq
     )
 }
 
-export default FactorFRC
+export default FactorFAS

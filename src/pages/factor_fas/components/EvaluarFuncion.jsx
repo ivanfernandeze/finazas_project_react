@@ -5,7 +5,7 @@ import { BlockMath } from 'react-katex';
 import { ImputNumber } from './ImputNumber';
 import { Button } from "@material-tailwind/react";
 function EvaluarFuncion({ ejemplo }) {
-    const [P, setP] = useState(100); // Capital inicial
+    const [R, setR] = useState(100); // Valor uniforme de pago
     const [i, setI] = useState(0.05); // Tasa de interés
     const [n, setN] = useState(10); // Número de periodos
     const [decimales, setDecimales] = useState(3);
@@ -15,7 +15,7 @@ function EvaluarFuncion({ ejemplo }) {
 
     useEffect(() => {
         if (ejemplo) {
-            setP(ejemplo.P);
+            setR(ejemplo.R);
             setI(ejemplo.i);
             setN(ejemplo.n);
             setDecimales(ejemplo.decimales);
@@ -38,33 +38,34 @@ function EvaluarFuncion({ ejemplo }) {
             result: A
         };
         console.log(A);
-        // 3. Calcular el Numerador B = A*i
-        const B = evaluate(`${A} * ${i}`);
-        const step2 = {
+        // 3. Calcular el Numerador B = A - 1
+        const B = evaluate(`${A} - 1`);
+        const step3 = {
             part: "Calcular el Numerador",
-            base: 'B = A * i',
-            equation: `B = ${parseFloat(A).toFixed(decimales)} * ${i}`,
+            base: 'B = A - 1',
+            equation: `B = ${parseFloat(A).toFixed(decimales)} - 1`,
             result: B
         };
         console.log(B);
-        // 3. Calcular el Denominador C = A - 1
-        const C = evaluate(`${A} - 1`);
-        const step3 = {
+        // 3. Calcular el Denominador C = A*i
+        const C = evaluate(`${A} * ${i}`);
+        const step2 = {
             part: "Calcular el Denominador",
-            base: 'C = A - 1',
-            equation: `C = ${parseFloat(A).toFixed(decimales)} - 1`,
+            base: 'C = A * i',
+            equation: `C = ${parseFloat(A).toFixed(decimales)} * ${i}`,
             result: C
         };
         console.log(C);
-        // 4. Calcular R = P * (B / C)
-        const R = evaluate(`${P} * (${parseFloat(B).toFixed(decimales)} / ${parseFloat(C).toFixed(decimales)})`);
+
+        // 4. Calcular R = R * (B / C)
+        const P = evaluate(`${R} * (${parseFloat(B).toFixed(decimales)} / ${parseFloat(C).toFixed(decimales)})`);
         const step4 = {
             part: "Multiplicar por P la fracción",
-            base: 'R = P * \\frac{B}{C}',
-            equation: `R = ${P} *\\frac{${parseFloat(B).toFixed(decimales)}}{${parseFloat(C).toFixed(decimales)}}`,
-            result: R
+            base: 'P = R * \\frac{B}{C}',
+            equation: `P = ${R} *\\frac{${parseFloat(B).toFixed(decimales)}}{${parseFloat(C).toFixed(decimales)}}`,
+            result: P
         };
-        console.log(R);
+        console.log(P);
         // Guardar los pasos en el estado
         setSteps([step1, step2, step3, step4]);
     };
@@ -72,7 +73,7 @@ function EvaluarFuncion({ ejemplo }) {
     return (
         <div className={`flex ${steps.length > 0 ? 'gap-20' : ''} py-10 justify-center`}>
             <div className='flex flex-col gap-4 py-8 px-4 bg-[#F0F0F0] rounded-xl h-max'>
-                <ImputNumber className="text-black text-lg" label="Valor Presente" type="number" value={P} onChange={(e) => setP(e.target.value)}></ImputNumber>
+                <ImputNumber className="text-black text-lg" label="Valor Uniforme" type="number" value={R} onChange={(e) => setR(e.target.value)}></ImputNumber>
                 <ImputNumber className="text-black text-lg" label="Tasa de Interés (en Decimales)*" type="number" value={i} onChange={(e) => setI(e.target.value)}></ImputNumber>
                 <ImputNumber className="text-black text-lg" label="Cantidad de Periodos*" type="number" value={n} onChange={(e) => setN(e.target.value)}></ImputNumber>
                 <ImputNumber className="text-black text-lg" label="Cantidad de Decimales" type="number" value={decimales} onChange={(e) => setDecimales(e.target.value)}></ImputNumber>

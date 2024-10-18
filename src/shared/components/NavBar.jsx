@@ -48,7 +48,7 @@ const menuItemFormulas = [
   },
   {
     title: "FAS",
-    path: "/formulas4"
+    path: "/factorFAS"
   },
   {
     title: "FCS",
