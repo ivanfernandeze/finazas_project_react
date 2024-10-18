@@ -24,17 +24,21 @@ import {
 
 const menuItemRatio = [
   {
-    title: "Liquidez",
-    path: "/liquidez"
+    title: "Gestion",
+    path: "/RatioGestion"
   },
   {
     title: "Rentabilidad",
     path: "/ratio-rentabilidad"
   },
   {
-    title: "Gestion",
-    path: "/RatioGestion"
+    title: "Liquidez",
+    path: "/ratio-liquidez"
   },
+  {
+    title: "Solvencia",
+    path: "/ratio-solvencia"
+  }
 ]
 
 const menuItemFormulas = [

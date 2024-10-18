@@ -11,7 +11,8 @@ import FactorSimple from './pages/factor_simple/FactorSimple'
 import FactorSA from './pages/factor_SA/FactorFSA'
 import RatioGestion from './pages/ratio_gestion/RatioGestion'
 import RatioRentabilidad from './pages/ratio_rentabilidad/RatioRentabilidad'
-
+import RatioLiquidez from "./pages/ratio_liquidez/RatioLiquidez";
+import RatioSolvencia from "./pages/ratio_solvencia/RatioSolvencia";
 
 function App() {
   return (
@@ -28,14 +29,15 @@ function App() {
           <Route path="/factorFAS" element={<FactorFAS />} />
           <Route path="/factorFCS" element={<FactorFCS />} />
           <Route path="/factorFDA" element={<FactorFDA />} />
+          <Route path="/factorFSC" element={<FactorSimple />} />
+          <Route path="/factorFSA" element={<FactorSA />} />
           {/* <Route path="/liquidez" element={<Liquidez />} /> */}
   
-        <Route path="/factorFSC" element={<FactorSimple />} />
-        <Route path="/factorFSA" element={<FactorSA />} />
-        <Route path="/RatioGestion" element={<RatioGestion />} />
-
-        <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
-      </Routes>
+          <Route path="/RatioGestion" element={<RatioGestion />} />
+          <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
+          <Route path='/ratio-liquidez' element={<RatioLiquidez />} />
+          <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
+        </Routes>
       </main>
     </>
   );
