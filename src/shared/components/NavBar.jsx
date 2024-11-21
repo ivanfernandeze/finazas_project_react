@@ -74,7 +74,7 @@ function NavListMenu({ menuItems, titleMenu }) {
       <MenuHandler>
         <Typography as="div">
           <ListItem
-            className="flex items-center gap-2 px-4 py-1 hover:bg-gray-100 text-gray-900"
+            className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
             selected={isMenuOpen || isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
           >
@@ -92,11 +92,11 @@ function NavListMenu({ menuItems, titleMenu }) {
           </ListItem>
         </Typography>
       </MenuHandler>
-      <MenuList className="px-2 py-4 border block space-y-2 w-auto" >
+      <MenuList className="rounded-xl" >
         {menuItems.map((item, index) => (
-          <a href={item.path}>
+          <Link to={item.path} key={index}>
             <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start" >{item.title}</MenuItem>
-          </a>
+          </Link>
         ))}
       </MenuList>
     </Menu>
@@ -125,6 +125,11 @@ function NavBar() {
         <li>
           <ListItem className="px-4 py-1 hover:bg-gray-100 text-gray-900">
             <Link to='/about'>Contáctanos</Link>
+          </ListItem>
+        </li>
+        <li>
+          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
+            <Link to='/about'>FM y NOF</Link>
           </ListItem>
         </li>
       </ul>

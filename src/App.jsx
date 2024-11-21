@@ -23,7 +23,12 @@ function App() {
           <Route path="/factorFRC" element={<FactorFRC />} />
           <Route path="/factorFAS" element={<FactorFAS />} />
           {/* <Route path="/liquidez" element={<Liquidez />} /> */}
-
+  
+          <Route path="/RatioGestion" element={<RatioGestion />} />
+          <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
+          <Route path='/ratio-liquidez' element={<RatioLiquidez />} />
+          <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
+          <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
         </Routes>
       </main>
     </>
