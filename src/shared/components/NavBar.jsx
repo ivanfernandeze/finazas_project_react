@@ -24,23 +24,31 @@ import {
 
 const menuItemRatio = [
   {
-    title: "Liquidez",
-    path: "/liquidez"
+    title: "Gestion",
+    path: "/RatioGestion"
   },
   {
-    title: "Rendimiento",
-    path: "/rendimiento"
+    title: "Rentabilidad",
+    path: "/ratio-rentabilidad"
+  },
+  {
+    title: "Liquidez",
+    path: "/ratio-liquidez"
+  },
+  {
+    title: "Solvencia",
+    path: "/ratio-solvencia"
   }
 ]
 
 const menuItemFormulas = [
   {
     title: "FSC",
-    path: "/factorFRC"
+    path: "/factorFSC"
   },
   {
     title: "FSA",
-    path: "/factorFRC"
+    path: "/factorFSA"
   },
   {
     title: "FRC",
@@ -52,11 +60,11 @@ const menuItemFormulas = [
   },
   {
     title: "FCS",
-    path: "/formulas5"
+    path: "/factorFCS"
   },
   {
     title: "FDA",
-    path: "/formulas6"
+    path: "/factorFDA"
   },
 ]
 
@@ -66,40 +74,41 @@ function NavListMenu({ menuItems, titleMenu }) {
 
   return (
     <Menu
-      open={isMenuOpen}
-      handler={setIsMenuOpen}
-      placement="bottom"
-      allowHover={true}
-    >
-      <MenuHandler>
-        <Typography as="div">
-          <ListItem
-            className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
-            selected={isMenuOpen || isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen((cur) => !cur)}
-          >
-            {titleMenu}
-            <ChevronDownIcon
-              strokeWidth={2.5}
-              className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        placement="bottom"
+        allowHover={true}
+      >
+        <MenuHandler>
+          <Typography as="div">
+            <ListItem
+              className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              {titleMenu}
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
                 }`}
             />
             <ChevronDownIcon
               strokeWidth={2.5}
               className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
                 }`}
-            />
-          </ListItem>
-        </Typography>
-      </MenuHandler>
-      <MenuList className="rounded-xl" >
-        {menuItems.map((item, index) => (
-          <Link to={item.path} key={index}>
-            <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start" >{item.title}</MenuItem>
-          </Link>
-        ))}
-      </MenuList>
-    </Menu>
+              />
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList className="rounded-xl" >
+          {menuItems.map((item, index) => (
+            <Link to={item.path} key={index}>
+              <MenuItem key={index} className="w-[140px] px-4 py-2 rounded-md hover:bg-gray-100 flex justify-start" >{item.title}</MenuItem>
+            </Link>
+          ))}
+        </MenuList>
+      </Menu>
   )
 }
 
@@ -112,7 +121,7 @@ function NavBar() {
       </div>
       <ul className=' flex gap-2 items-center'>
         <li>
-          <ListItem className="px-4 py-1 hover:bg-gray-100 text-gray-900">
+          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
             <Link to='/about'>Sobre Nosotros</Link>
           </ListItem>
         </li>
@@ -123,13 +132,8 @@ function NavBar() {
           <NavListMenu menuItems={menuItemFormulas} titleMenu={"Formulas"} />
         </li>
         <li>
-          <ListItem className="px-4 py-1 hover:bg-gray-100 text-gray-900">
-            <Link to='/about'>Contáctanos</Link>
-          </ListItem>
-        </li>
-        <li>
           <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/about'>FM y NOF</Link>
+            <Link to='/about'>Contáctanos</Link>
           </ListItem>
         </li>
       </ul>
