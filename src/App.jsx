@@ -13,6 +13,7 @@ import RatioGestion from './pages/ratio_gestion/RatioGestion'
 import RatioRentabilidad from './pages/ratio_rentabilidad/RatioRentabilidad'
 import RatioLiquidez from "./pages/ratio_liquidez/RatioLiquidez";
 import RatioSolvencia from "./pages/ratio_solvencia/RatioSolvencia";
+import Bonos from "./pages/Bonos/Bonos"; 
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/bonos" element={<Bonos />} />
           <Route path="/factorFRC" element={<FactorFRC />} />
           <Route path="/factorFAS" element={<FactorFAS />} />
           <Route path="/factorFCS" element={<FactorFCS />} />
