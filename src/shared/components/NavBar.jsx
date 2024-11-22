@@ -142,7 +142,7 @@ function NavBar() {
         </li>
         <li>
           <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/about'>Apalancamiento</Link>
+            <Link to='/apalancamiento'>Apalancamiento</Link>
           </ListItem>
         </li>
       </ul>

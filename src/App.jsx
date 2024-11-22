@@ -40,7 +40,7 @@ function App() {
           <Route path='/ratio-liquidez' element={<RatioLiquidez />} />
           <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
           <Route path='/eva' element={<Eva />} />
-          <Route path='/apalancamiento' element={<Eva />} />
+          <Route path='/apalancamiento' element={<Apalancamiento />} />
 
         </Routes>
       </main>
