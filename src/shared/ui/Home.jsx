@@ -53,7 +53,7 @@ function Home() {
       fontSize: '1.5rem',
       marginBottom: '40px',
       color: '#644BDB',
-      
+
     },
     cardContainer: {
       display: 'flex',

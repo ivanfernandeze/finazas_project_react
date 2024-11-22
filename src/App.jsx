@@ -13,7 +13,7 @@ import RatioGestion from './pages/ratio_gestion/RatioGestion'
 import RatioRentabilidad from './pages/ratio_rentabilidad/RatioRentabilidad'
 import RatioLiquidez from "./pages/ratio_liquidez/RatioLiquidez";
 import RatioSolvencia from "./pages/ratio_solvencia/RatioSolvencia";
-import Eva from "./pages/eva/Eva";
+import Eva from "./pages/eva/eva";
 import Apalancamiento from "./pages/apalancamiento/apalancamiento";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <NavBar />
 
       {/* CONTENIDO */}
-      <main className="w-[95%] mx-auto">
+      <main className="w-[95%] mx-auto ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
