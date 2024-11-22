@@ -13,6 +13,11 @@ import RatioGestion from './pages/ratio_gestion/RatioGestion'
 import RatioRentabilidad from './pages/ratio_rentabilidad/RatioRentabilidad'
 import RatioLiquidez from "./pages/ratio_liquidez/RatioLiquidez";
 import RatioSolvencia from "./pages/ratio_solvencia/RatioSolvencia";
+import Wacc from "./pages/wacc/Wacc";
+import Eva from "./pages/eva/eva";
+import Apalancamiento from "./pages/apalancamiento/apalancamiento";
+import Bonos from "./pages/Bonos/Bonos"; 
+import RoaRoe from "./pages/roa_roe/roa_roe";
 
 function App() {
   return (
@@ -21,22 +26,30 @@ function App() {
       <NavBar />
 
       {/* CONTENIDO */}
-      <main className="w-[95%] mx-auto">
+      <main className="w-[95%] mx-auto ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/bonos" element={<Bonos />} />
           <Route path="/factorFRC" element={<FactorFRC />} />
           <Route path="/factorFAS" element={<FactorFAS />} />
           <Route path="/factorFCS" element={<FactorFCS />} />
           <Route path="/factorFDA" element={<FactorFDA />} />
           <Route path="/factorFSC" element={<FactorSimple />} />
           <Route path="/factorFSA" element={<FactorSA />} />
+          <Route path="/roa-roe" element={<RoaRoe />} />
           {/* <Route path="/liquidez" element={<Liquidez />} /> */}
-  
+
           <Route path="/RatioGestion" element={<RatioGestion />} />
           <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
           <Route path='/ratio-liquidez' element={<RatioLiquidez />} />
           <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
+
+          {/* SEGUNDA UNIDAD */}
+          <Route path="/wacc" element={<Wacc />} />
+          <Route path='/eva' element={<Eva />} />
+          <Route path='/apalancamiento' element={<Apalancamiento />} />
+
         </Routes>
       </main>
     </>

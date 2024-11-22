@@ -1,4 +1,5 @@
 import { HfInference } from "@huggingface/inference";
+import result from "katex/src/unicodeSymbols.js";
 
 const HF_ACCES_TOKEN = "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";
 const inference = new HfInference(HF_ACCES_TOKEN);
@@ -29,3 +30,11 @@ export async function streamChatCompletion(messages, maxTokens = 500, use_cache 
     }
     return fullMessage; // Retornamos el mensaje completo generado por el modelo
 }
+
+
+async function preguntar(){
+    const result = await streamChatCompletion([{role: "user", content: "Hola, ¿cómo estás?"}], 300)
+    console.log(result)
+}
+
+preguntar()
