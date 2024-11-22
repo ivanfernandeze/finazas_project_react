@@ -12,6 +12,7 @@ import {
     MenuHandler,
 } from "@material-tailwind/react";
 import { streamChatCompletion } from '../../services/api-ph1-microsoft';
+import { ModalInfo } from './components/ModalInfo';
 
 
 
@@ -129,7 +130,10 @@ function Wacc() {
 
   return (
     <section className='space-y-2'>
-        <h1 className='font-semibold my-10'>Calculadora WACC!</h1>
+        <div className='my-10 flex justify-center gap-4 items-center flex-col'>
+            <h1 className='font-semibold '>Calculadora WACC!</h1>
+            <ModalInfo/>
+        </div>
         <div className='flex gap-8'>
         {/* FORMULARIO PARA CALCULAR EL WACC */}
         <form className='w-[40%]'>

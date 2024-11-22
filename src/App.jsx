@@ -16,6 +16,7 @@ import RatioSolvencia from "./pages/ratio_solvencia/RatioSolvencia";
 import Wacc from "./pages/wacc/Wacc";
 import Eva from "./pages/eva/eva";
 import Apalancamiento from "./pages/apalancamiento/apalancamiento";
+import Bonos from "./pages/Bonos/Bonos"; 
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/bonos" element={<Bonos />} />
           <Route path="/factorFRC" element={<FactorFRC />} />
           <Route path="/factorFAS" element={<FactorFAS />} />
           <Route path="/factorFCS" element={<FactorFCS />} />
