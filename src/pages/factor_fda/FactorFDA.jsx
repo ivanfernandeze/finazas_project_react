@@ -36,6 +36,9 @@ function FactorFDA() {
                     <div className='flex flex-col items-center gap-4 rounded-lg shadow-md py-8 px-2'>
                         <h2 className='text-3xl font-light'>Definición</h2>
                         <p>El <strong>Factor de Depósito del Fondo de Amortización (FDA)</strong> se utiliza para calcular el valor del depósito periódico necesario para alcanzar un monto futuro específico, aplicando una tasa de interés constante.</p>
+                        <h3 className='text-xl font-bold text-start text-[#9300b1]'>Ejemplo Practico</h3>
+                        <p>Dentro <strong>dos años y medio</strong> piensas cambiar de automóvil estimas que te harán falta <strong>80,000 pesos</strong> por lo cual decides reunirlos realizando <strong>depósitos mensuales</strong> si la mejor tasa de interés que ofrece el banco es del <strong>18% anual</strong> convertible mensualmente de cuanto debe se cada deposito.</p>
+                        <div className='w-full flex justify-center'></div>
                     </div>
 
                     {/* Fórmula */}
@@ -69,7 +72,6 @@ function FactorFDA() {
 
                 {/* Sección de calculadora */}
                 <div>
-                    <h2 className='text-3xl font-light text-center'>Calculadora</h2>
                     <EvaluarFuncionFDA />
                 </div>
             </article>

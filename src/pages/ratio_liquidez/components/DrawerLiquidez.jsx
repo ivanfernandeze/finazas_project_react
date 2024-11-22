@@ -5,13 +5,13 @@ import {
   Typography,
   IconButton
 } from "@material-tailwind/react";
- 
+
 export function DrawerLiquidez({nombreRatio, descripciones}) {
   const [openBottom, setOpenBottom] = React.useState(false);
 
   const openDrawerBottom = () => setOpenBottom(true);
   const closeDrawerBottom = () => setOpenBottom(false);
- 
+
   return (
     <React.Fragment>
       <div className="flex flex-wrap gap-4 items-center pt-4">

@@ -36,7 +36,10 @@ function FactorFCS() {
                     {/* Definición */}
                     <div className='flex flex-col items-center gap-4 rounded-lg shadow-md py-8 px-2'>
                         <h2 className='text-3xl font-light'>Definición</h2>
-                        <p>El <strong>Factor de Capitalización de la Serie (FC$)</strong> se utiliza para calcular el valor acumulado de una serie de pagos periódicos constantes, aplicando una tasa de interés constante durante un período de tiempo.</p>
+                        <p>El <strong>Factor de Capitalización de la Serie (FCS)</strong> se utiliza para calcular el valor acumulado de una serie de pagos periódicos constantes, aplicando una tasa de interés constante durante un período de tiempo.</p>
+                        <h3 className='text-xl font-bold text-start text-[#9300b1]'>Ejemplo Practico</h3>
+                        <p>Si una deuda se estableció pagar en 10 cuotas bimestral de <strong>S/ 800</strong>.- c/u. Determinar cuanto sepagará por las <strong>5 ultimas </strong>cuotas, si se cancelara al final de la operación en forma conjunta,sabiendo que los intereses se fijan a la tasa del <strong>9% bimestral</strong>.</p>
+                        <div className='w-full flex justify-center'></div>
                     </div>
 
                     {/* Fórmula */}
@@ -70,7 +73,6 @@ function FactorFCS() {
 
                 {/* Sección de calculadora */}
                 <div>
-                    <h2 className='text-3xl font-light text-center'>Calculadora</h2>
                     <EvaluarFuncion />
                 </div>
             </article>
