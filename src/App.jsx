@@ -17,6 +17,7 @@ import Wacc from "./pages/wacc/Wacc";
 import Eva from "./pages/eva/eva";
 import Apalancamiento from "./pages/apalancamiento/apalancamiento";
 import Bonos from "./pages/Bonos/Bonos"; 
+import RoaRoe from "./pages/roa_roe/roa_roe";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/factorFDA" element={<FactorFDA />} />
           <Route path="/factorFSC" element={<FactorSimple />} />
           <Route path="/factorFSA" element={<FactorSA />} />
+          <Route path="/roa-roe" element={<RoaRoe />} />
           {/* <Route path="/liquidez" element={<Liquidez />} /> */}
 
           <Route path="/RatioGestion" element={<RatioGestion />} />
