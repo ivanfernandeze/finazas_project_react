@@ -13,6 +13,8 @@ import RatioGestion from './pages/ratio_gestion/RatioGestion'
 import RatioRentabilidad from './pages/ratio_rentabilidad/RatioRentabilidad'
 import RatioLiquidez from "./pages/ratio_liquidez/RatioLiquidez";
 import RatioSolvencia from "./pages/ratio_solvencia/RatioSolvencia";
+import Eva from "./pages/eva/Eva";
+import Apalancamiento from "./pages/apalancamiento/apalancamiento";
 
 function App() {
   return (
@@ -32,11 +34,14 @@ function App() {
           <Route path="/factorFSC" element={<FactorSimple />} />
           <Route path="/factorFSA" element={<FactorSA />} />
           {/* <Route path="/liquidez" element={<Liquidez />} /> */}
-  
+
           <Route path="/RatioGestion" element={<RatioGestion />} />
           <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
           <Route path='/ratio-liquidez' element={<RatioLiquidez />} />
           <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
+          <Route path='/eva' element={<Eva />} />
+          <Route path='/apalancamiento' element={<Eva />} />
+
         </Routes>
       </main>
     </>
