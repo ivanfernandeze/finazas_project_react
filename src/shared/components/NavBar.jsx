@@ -105,31 +105,56 @@ function NavListMenu({ menuItems, titleMenu }) {
 
 function NavBar() {
   return (
-    <nav className='px-10 py-4 flex justify-between items-center'>
-
-      <div>
-        <Link to='/' className="text-xl font-semibold">Grupo Microsoft</Link>
+    <nav className="px-10 py-4 bg-white shadow-md flex items-center justify-between">
+      {/* Logo */}
+      <div className="flex items-center">
+        <Link to="/" className="text-xl font-semibold text-gray-900">
+          Grupo Microsoft
+        </Link>
       </div>
-      <ul className=' flex gap-2 items-center'>
+
+      {/* Menú de navegación */}
+      <ul className="flex gap-6 items-center">
+        {/* Sobre Nosotros */}
         <li>
           <ListItem className="px-4 py-1 hover:bg-gray-100 text-gray-900">
-            <Link to='/about'>Sobre Nosotros</Link>
+            <Link to="/about" className="text-sm font-medium">
+              Sobre Nosotros
+            </Link>
           </ListItem>
         </li>
+
+        {/* Ratios */}
         <li>
-          <NavListMenu menuItems={menuItemRatio} titleMenu={"Ratios"} />
+          <NavListMenu menuItems={menuItemRatio} titleMenu="Ratios" />
         </li>
+
+        {/* Fórmulas */}
         <li>
-          <NavListMenu menuItems={menuItemFormulas} titleMenu={"Formulas"} />
+          <NavListMenu menuItems={menuItemFormulas} titleMenu="Fórmulas" />
         </li>
+
+        {/* ROA - ROE */}
+        <li>
+          <Link
+            to="/roa-roe"
+            className="px-4 py-1 text-sm font-medium hover:bg-gray-100 text-gray-900"
+          >
+            ROA - ROE
+          </Link>
+        </li>
+
+        {/* Contáctanos */}
         <li>
           <ListItem className="px-4 py-1 hover:bg-gray-100 text-gray-900">
-            <Link to='/about'>Contáctanos</Link>
+            <Link to="/contact" className="text-sm font-medium">
+              Contáctanos
+            </Link>
           </ListItem>
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

@@ -6,6 +6,7 @@ import About from "./shared/ui/About";
 import FactorFRC from "./pages/factor_frc/FactorFRC";
 import FactorFCS from "./pages/factor_fcs/FactorFCS";
 import FactorFDA from "./pages/factor_fda/FactorFDA";
+import RoaRoe from "./pages/roa_roe/roa_roe";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/factorFRC" element={<FactorFRC />} />
           <Route path="/factorFCS" element={<FactorFCS />} />
           <Route path="/factorFDA" element={<FactorFDA />} />
+          <Route path="/roa-roe" element={<RoaRoe />} />
           {/* <Route path="/liquidez" element={<Liquidez />} /> */}
         </Routes>
       </main>
