@@ -19,6 +19,8 @@ import {
   XMarkIcon,
   ChevronUpIcon,
 } from "@heroicons/react/24/outline";
+import { NavListMenuIIUnidad } from "./Nav";
+
 
 
 const menuItemRatio = [
@@ -138,36 +140,14 @@ function NavBar() {
         <li>
           <NavListMenu menuItems={menuItemFormulas} titleMenu="Fórmulas" />
         </li>
-
+        {/* SEGUNDA UNIDAD */}
+        <li>
+        <NavListMenuIIUnidad />
+        </li>
         {/* Contáctanos */}
         <li>
           <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
             <Link to='/about'>Contáctanos</Link>
-          </ListItem>
-        </li>
-        <li>
-          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/roa-roe'>Roa - Roe</Link>
-          </ListItem>
-        </li>
-        <li>
-          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/eva'>Eva</Link>
-          </ListItem>
-        </li>
-        <li>
-          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/apalancamiento'>Apalancamiento</Link>
-          </ListItem>
-        </li>
-        <li>
-          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/bonos'>Bonos</Link>
-          </ListItem>
-        </li>
-        <li>
-          <ListItem className="items-center gap-2 py-2 pr-4 font-medium text-gray-900">
-            <Link to='/wacc'>Wacc</Link>
           </ListItem>
         </li>
       </ul>
