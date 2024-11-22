@@ -57,7 +57,7 @@ function Bonos() {
     const vpTir1 = flujosTir1.reduce((sum, flujo) => sum + parseFloat(flujo.vp), 0);
     const vpTir2 = flujosTir2.reduce((sum, flujo) => sum + parseFloat(flujo.vp), 0);
 
-    const variacion = ((vpTir1 - vpTir2) / vpTir2) * 100;
+    const variacion = ((vpTir2 - vpTir1) / vpTir2) * 100;
 
     setResults({
       tir1: flujosTir1,

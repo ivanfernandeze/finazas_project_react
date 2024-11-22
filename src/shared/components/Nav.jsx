@@ -62,9 +62,9 @@ const navListMenuItems = [
     icon: GlobeAmericasIcon,
   },
   {
-    title: "Contact",
+    title: "Nof - Fm",
     description: "Find the perfect solution for your needs.",
-    ir: "/roa-roe",
+    ir: "/nof-fm",
     icon: PhoneIcon,
   }
 ];

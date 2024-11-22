@@ -45,7 +45,7 @@ function App() {
           <Route path='/ratio-rentabilidad' element={<RatioRentabilidad />} />
           <Route path='/ratio-liquidez' element={<RatioLiquidez />} />
           <Route path='/ratio-solvencia' element={<RatioSolvencia />} />
-          <Route path='/roa-roe' element={<NofFm />} />
+          <Route path='/nof-fm' element={<NofFm />} />
           {/* SEGUNDA UNIDAD */}
           <Route path="/wacc" element={<Wacc />} />
           <Route path='/eva' element={<Eva />} />

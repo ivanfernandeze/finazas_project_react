@@ -18,7 +18,7 @@ const RoaRoe = () => {
         const roa = parseFloat(calculateROA());
         if (roa > 10) {
             return "El ROA es alto, lo que indica que la empresa utiliza eficientemente sus activos para generar ganancias.";
-        } else if (roa > 5) {
+        } else if (roa > 5){
             return "El ROA es moderado, lo que sugiere una gestión aceptable de los activos.";
         } else {
             return "El ROA es bajo, lo que podría significar que la empresa no está aprovechando adecuadamente sus activos.";
