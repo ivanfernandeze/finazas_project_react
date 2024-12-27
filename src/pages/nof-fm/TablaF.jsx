@@ -64,7 +64,7 @@ const TablaF = () => {
 
     const calculateDifference = (table, colIndex) => {
         const data = table === 'corrientes' ? dataCorrientes : table === 'noCorrientes' ? dataNoCorrientes : table === 'pasivo' ? dataPasivo : table === 'pasivoObligaciones' ? dataPasivoObligaciones : table === 'ventas' ? dataVentas : dataPatrimonio;
-        
+
         const firstValue = parseFloat(data[0].values[colIndex]) || 0; // Primer valor de la columna
         return data
             .map((row) => parseFloat(row.values[colIndex]) || 0) // Convertimos los valores a números
@@ -75,7 +75,7 @@ const TablaF = () => {
                 return acc - value; // Restamos los demás valores al primero
             }, firstValue); // Iniciamos con el primer valor
     };
-    
+
     const getValue = (tableData, rowIndex, colIndex) => {
         if (
             rowIndex >= 0 && rowIndex < tableData.length && // Verifica que la fila esté dentro del rango
@@ -89,26 +89,27 @@ const TablaF = () => {
     return (
         <div>
             {/* Tabla Activos Corrientes */}
-            <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '-1px' }}>
+            <table className="min-w-full table-auto border-collapse border border-gray-300 mb-6">
                 <thead>
-                    <tr>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth}px` }}>ACTIVOS</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2022</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2023</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2024</th>
+                    <tr className="bg-blue-500 text-white">
+                        <th className="p-4" style={{ width: `${firstColumnWidth}px` }}>ACTIVOS</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2022</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2023</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2024</th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataCorrientes.map((row) => (
-                        <tr key={row.id}>
-                            <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth}px` }}>
+                        <tr key={row.id} className="hover:bg-gray-100">
+                            <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                                 {row.name}
                             </td>
                             {row.values.map((value, colIndex) => (
-                                <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                                <td key={colIndex} className="p-4 text-center">
                                     <TableInputCell
                                         initialValue={value}
                                         onChange={(newValue) => handleChange('corrientes', row.id, colIndex, newValue)}
+                                        className="border rounded-lg p-2 w-24 text-center focus:outline-none focus:ring-2 focus:ring-blue-400"
                                     />
                                 </td>
                             ))}
@@ -116,12 +117,12 @@ const TablaF = () => {
                     ))}
 
                     {/* Fila Total Activo Corriente */}
-                    <tr>
-                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
+                    <tr className="font-bold bg-gray-200">
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                             Total Activo Corriente
                         </td>
                         {[0, 1, 2].map((colIndex) => (
-                            <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                            <td key={colIndex} className="p-4 text-center">
                                 {calculateTotal('corrientes', colIndex).toFixed(2)}
                             </td>
                         ))}
@@ -130,18 +131,19 @@ const TablaF = () => {
             </table>
 
             {/* Tabla Activos No Corrientes */}
-            <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '-1px' }}>
+            <table className="min-w-full table-auto border-collapse border border-gray-300 mb-6 ">
                 <tbody>
                     {dataNoCorrientes.map((row) => (
-                        <tr key={row.id}>
-                            <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth}px` }}>
+                        <tr key={row.id} className="hover:bg-gray-100">
+                            <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                                 {row.name}
                             </td>
                             {row.values.map((value, colIndex) => (
-                                <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                                <td key={colIndex} className="p-4 text-center">
                                     <TableInputCell
                                         initialValue={value}
                                         onChange={(newValue) => handleChange('noCorrientes', row.id, colIndex, newValue)}
+                                        className="border rounded-lg p-2 w-24 text-center focus:outline-none focus:ring-2 focus:ring-blue-400"
                                     />
                                 </td>
                             ))}
@@ -149,12 +151,12 @@ const TablaF = () => {
                     ))}
 
                     {/* Fila Total Activo No Corriente */}
-                    <tr>
-                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
+                    <tr className="font-bold bg-gray-200">
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                             Total Activo No Corriente
                         </td>
                         {[0, 1, 2].map((colIndex) => (
-                            <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                            <td key={colIndex} className="p-4 text-center">
                                 {calculateTotal('noCorrientes', colIndex).toFixed(2)}
                             </td>
                         ))}
@@ -163,26 +165,27 @@ const TablaF = () => {
             </table>
 
             {/* Tabla PASIVO */}
-            <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '15px' }}>
+            <table className="min-w-full table-auto border-collapse border border-gray-300 mb-6">
                 <thead>
-                    <tr>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth}px` }}>PASIVO</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2022</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2023</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2024</th>
+                    <tr className="bg-red-500 text-white">
+                        <th className="p-4" style={{ width: `${firstColumnWidth}px` }}>PASIVO</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2022</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2023</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2024</th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataPasivo.map((row) => (
-                        <tr key={row.id}>
-                            <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth}px` }}>
+                        <tr key={row.id} className="hover:bg-gray-100">
+                            <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                                 {row.name}
                             </td>
                             {row.values.map((value, colIndex) => (
-                                <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                                <td key={colIndex} className="p-4 text-center">
                                     <TableInputCell
                                         initialValue={value}
                                         onChange={(newValue) => handleChange('pasivo', row.id, colIndex, newValue)}
+                                        className="border rounded-lg p-2 w-24 text-center focus:outline-none focus:ring-2 focus:ring-blue-400"
                                     />
                                 </td>
                             ))}
@@ -190,12 +193,12 @@ const TablaF = () => {
                     ))}
 
                     {/* Fila Total Pasivo Corriente */}
-                    <tr>
-                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
+                    <tr className="font-bold bg-gray-200">
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                             Total Pasivo Corriente
                         </td>
                         {[0, 1, 2].map((colIndex) => (
-                            <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                            <td key={colIndex} className="p-4 text-center">
                                 {calculateTotal('pasivo', colIndex).toFixed(2)}
                             </td>
                         ))}
@@ -204,26 +207,27 @@ const TablaF = () => {
             </table>
 
             {/* Tabla PATRIMONIO */}
-            <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '15px' }}>
+            <table className="min-w-full table-auto border-collapse border border-gray-300 mb-6">
                 <thead>
-                    <tr>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth}px` }}>PATRIMONIO</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2022</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2023</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2024</th>
+                    <tr className="bg-green-500 text-white">
+                        <th className="p-4" style={{ width: `${firstColumnWidth}px` }}>PATRIMONIO</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2022</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2023</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2024</th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataPatrimonio.map((row) => (
-                        <tr key={row.id}>
-                            <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth}px` }}>
+                        <tr key={row.id} className="hover:bg-gray-100">
+                            <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                                 {row.name}
                             </td>
                             {row.values.map((value, colIndex) => (
-                                <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                                <td key={colIndex} className="p-4 text-center">
                                     <TableInputCell
                                         initialValue={value}
                                         onChange={(newValue) => handleChange('patrimonio', row.id, colIndex, newValue)}
+                                        className="border rounded-lg p-2 w-24 text-center focus:outline-none focus:ring-2 focus:ring-blue-400"
                                     />
                                 </td>
                             ))}
@@ -231,12 +235,12 @@ const TablaF = () => {
                     ))}
 
                     {/* Fila Total Patrimonio */}
-                    <tr>
-                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
+                    <tr className="font-bold bg-gray-200">
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                             Total Patrimonio
                         </td>
                         {[0, 1, 2].map((colIndex) => (
-                            <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                            <td key={colIndex} className="p-4 text-center">
                                 {calculateTotal('patrimonio', colIndex).toFixed(2)}
                             </td>
                         ))}
@@ -244,39 +248,42 @@ const TablaF = () => {
                 </tbody>
             </table>
 
-            {/* Nueva tabla de VENTAS */}
-            <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '15px' }}>
+
+            {/* Tabla VENTAS */}
+            <table className="min-w-full table-auto border-collapse border border-gray-300 mb-6">
                 <thead>
-                    <tr>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth}px` }}>VENTAS</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2022</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2023</th>
-                        <th style={{ padding: '10px', width: `${firstColumnWidth - 100}px` }}>2024</th>
+                    <tr className="bg-yellow-500 text-white">
+                        <th className="p-4" style={{ width: `${firstColumnWidth}px` }}>VENTAS</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2022</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2023</th>
+                        <th className="p-4" style={{ width: `${firstColumnWidth - 100}px` }}>2024</th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataVentas.map((row) => (
-                        <tr key={row.id}>
-                            <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth}px` }}>
+                        <tr key={row.id} className="hover:bg-gray-100">
+                            <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
                                 {row.name}
                             </td>
                             {row.values.map((value, colIndex) => (
-                                <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                                <td key={colIndex} className="p-4 text-center">
                                     <TableInputCell
                                         initialValue={value}
                                         onChange={(newValue) => handleChange('ventas', row.id, colIndex, newValue)}
+                                        className="border rounded-lg p-2 w-24 text-center focus:outline-none focus:ring-2 focus:ring-blue-400"
                                     />
                                 </td>
                             ))}
                         </tr>
                     ))}
+
                     {/* Fila Utilidad Bruta */}
-                    <tr>
-                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
-                        Utilidad Bruta
+                    <tr className="font-bold bg-gray-200">
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth}px` }}>
+                            Utilidad Bruta
                         </td>
                         {[0, 1, 2].map((colIndex) => (
-                            <td key={colIndex} style={{ padding: '10px', textAlign: 'center' }}>
+                            <td key={colIndex} className="p-4 text-center">
                                 {calculateDifference('ventas', colIndex).toFixed(2)}
                             </td>
                         ))}
@@ -285,97 +292,88 @@ const TablaF = () => {
             </table>
 
             {/* Nueva tabla de Fondo de Maniobra */}
-            <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '15px' }}>
+            <table className="min-w-full table-auto border-collapse border border-gray-300 mb-6">
                 <thead>
-                    <tr>
-                        <th colSpan="4" style={{ padding: '10px', width: `${firstColumnWidth}px` }}>COMPARACION</th>
+                    <tr className="bg-indigo-500 text-white">
+                        <th colSpan="4" className="p-4 text-center">
+                            COMPARACION
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
-                        FM
+                        <td className="p-4 text-center font-bold" style={{ width: `${firstColumnWidth}px` }}>FM</td>
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {getValue(dataCorrientes, 0, 0) + getValue(dataCorrientes, 1, 0) + getValue(dataCorrientes, 2, 0) - getValue(dataNoCorrientes, 0, 0) - getValue(dataNoCorrientes, 1, 0)}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {getValue(dataCorrientes, 0, 0) + getValue(dataCorrientes, 1, 0) + getValue(dataCorrientes, 2, 0)-
-                        getValue(dataNoCorrientes, 0, 0) - getValue(dataNoCorrientes, 1, 0)}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {getValue(dataCorrientes, 0, 1) + getValue(dataCorrientes, 1, 1) + getValue(dataCorrientes, 2, 1) - getValue(dataNoCorrientes, 0, 1) - getValue(dataNoCorrientes, 1, 1)}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {getValue(dataCorrientes, 0, 1) + getValue(dataCorrientes, 1, 1) + getValue(dataCorrientes, 2, 1)
-                        -getValue(dataNoCorrientes, 0, 1) - getValue(dataNoCorrientes, 1, 1)}
-                        </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {getValue(dataCorrientes, 0, 2) + getValue(dataCorrientes, 1, 2) + getValue(dataCorrientes, 2, 2)
-                        -getValue(dataNoCorrientes, 0, 2) - getValue(dataNoCorrientes, 1, 2)}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {getValue(dataCorrientes, 0, 2) + getValue(dataCorrientes, 1, 2) + getValue(dataCorrientes, 2, 2) - getValue(dataNoCorrientes, 0, 2) - getValue(dataNoCorrientes, 1, 2)}
                         </td>
                     </tr>
+
                     <tr>
-                    <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
-                        SALDO NOF 1
+                        <td className="p-4 text-center font-bold" style={{ width: `${firstColumnWidth}px` }}>SALDO NOF 1</td>
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {(getValue(dataCorrientes, 1, 0) / 360) * (360 / (getValue(dataVentas, 0, 0) / getValue(dataCorrientes, 1, 0)))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {(getValue(dataCorrientes, 1, 0)/360)*(360/(getValue(dataVentas, 0, 0)/getValue(dataCorrientes, 1, 0)))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {(getValue(dataCorrientes, 1, 1) / 360) * (360 / (getValue(dataVentas, 0, 1) / getValue(dataCorrientes, 1, 1)))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {(getValue(dataCorrientes, 1, 1)/360)*(360/(getValue(dataVentas, 0, 1)/getValue(dataCorrientes, 1, 1)))}
-                        </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {(getValue(dataCorrientes, 1, 2)/360)*(360/(getValue(dataVentas, 0, 2)/getValue(dataCorrientes, 1, 2)))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {(getValue(dataCorrientes, 1, 2) / 360) * (360 / (getValue(dataVentas, 0, 2) / getValue(dataCorrientes, 1, 2)))}
                         </td>
                     </tr>
-                    
+
                     <tr>
-                    <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
-                        SALDO NOF 2
+                        <td className="p-4 text-center font-bold" style={{ width: `${firstColumnWidth}px` }}>SALDO NOF 2</td>
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {((getValue(dataCorrientes, 2, 0) / 360) * (360 / (getValue(dataVentas, 1, 0) / getValue(dataCorrientes, 2, 0))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {((getValue(dataCorrientes, 2,0)/360)*(360/(getValue(dataVentas, 1, 0)/getValue(dataCorrientes, 2,0))))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {((getValue(dataCorrientes, 2, 1) / 360) * (360 / (getValue(dataVentas, 1, 1) / getValue(dataCorrientes, 2, 1))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {((getValue(dataCorrientes, 2,1)/360)*(360/(getValue(dataVentas, 1, 1)/getValue(dataCorrientes, 2,1))))}
-                        </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {((getValue(dataCorrientes, 2,2)/360)*(360/(getValue(dataVentas, 1, 2)/getValue(dataCorrientes, 2,2))))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {((getValue(dataCorrientes, 2, 2) / 360) * (360 / (getValue(dataVentas, 1, 2) / getValue(dataCorrientes, 2, 2))))}
                         </td>
                     </tr>
-                    
+
                     <tr>
-                    <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
-                        SALDO NOF 3
+                        <td className="p-4 text-center font-bold" style={{ width: `${firstColumnWidth}px` }}>SALDO NOF 3</td>
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {((getValue(dataPasivo, 0, 0) / 360) * (360 / (getValue(dataVentas, 1, 0) / getValue(dataPasivo, 0, 0))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {((getValue(dataPasivo,0,0)/360)*(360/(getValue(dataVentas,1,0)/getValue(dataPasivo,0,0))))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {((getValue(dataPasivo, 0, 1) / 360) * (360 / (getValue(dataVentas, 1, 1) / getValue(dataPasivo, 0, 1))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {((getValue(dataPasivo,0,1)/360)*(360/(getValue(dataVentas,1,1)/getValue(dataPasivo,0,1))))}
-                        </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {((getValue(dataPasivo,0,2)/360)*(360/(getValue(dataVentas,1,2)/getValue(dataPasivo,0,2))))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {((getValue(dataPasivo, 0, 2) / 360) * (360 / (getValue(dataVentas, 1, 2) / getValue(dataPasivo, 0, 2))))}
                         </td>
                     </tr>
-                    
+
                     <tr>
-                    <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold', width: `${firstColumnWidth}px` }}>
-                        NOF
+                        <td className="p-4 text-center font-bold" style={{ width: `${firstColumnWidth}px` }}>NOF</td>
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {(getValue(dataCorrientes, 1, 0) / 360) * (360 / (getValue(dataVentas, 0, 0) / getValue(dataCorrientes, 1, 0))) +
+                                ((getValue(dataCorrientes, 2, 0) / 360) * (360 / (getValue(dataVentas, 1, 0) / getValue(dataCorrientes, 2, 0)))) -
+                                ((getValue(dataPasivo, 0, 0) / 360) * (360 / (getValue(dataVentas, 1, 0) / getValue(dataPasivo, 0, 0))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {(getValue(dataCorrientes, 1, 0)/360)*(360/(getValue(dataVentas, 0, 0)/getValue(dataCorrientes, 1, 0)))+
-                        ((getValue(dataCorrientes, 2,0)/360)*(360/(getValue(dataVentas, 1, 0)/getValue(dataCorrientes, 2,0))))-
-                        ((getValue(dataPasivo,0,0)/360)*(360/(getValue(dataVentas,1,0)/getValue(dataPasivo,0,0))))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {(getValue(dataCorrientes, 1, 1) / 360) * (360 / (getValue(dataVentas, 0, 1) / getValue(dataCorrientes, 1, 1))) +
+                                ((getValue(dataCorrientes, 2, 1) / 360) * (360 / (getValue(dataVentas, 1, 1) / getValue(dataCorrientes, 2, 1)))) -
+                                ((getValue(dataPasivo, 0, 1) / 360) * (360 / (getValue(dataVentas, 1, 1) / getValue(dataPasivo, 0, 1))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {(getValue(dataCorrientes, 1, 1)/360)*(360/(getValue(dataVentas, 0, 1)/getValue(dataCorrientes, 1, 1)))+
-                        ((getValue(dataCorrientes, 2,1)/360)*(360/(getValue(dataVentas, 1, 1)/getValue(dataCorrientes, 2,1))))-
-                        ((getValue(dataPasivo,0,1)/360)*(360/(getValue(dataVentas,1,1)/getValue(dataPasivo,0,1))))}
+                        <td className="p-4 text-center" style={{ width: `${firstColumnWidth - 100}px` }}>
+                            {(getValue(dataCorrientes, 1, 2) / 360) * (360 / (getValue(dataVentas, 0, 2) / getValue(dataCorrientes, 1, 2))) +
+                                ((getValue(dataCorrientes, 2, 2) / 360) * (360 / (getValue(dataVentas, 1, 2) / getValue(dataCorrientes, 2, 2)))) -
+                                ((getValue(dataPasivo, 0, 2) / 360) * (360 / (getValue(dataVentas, 1, 2) / getValue(dataPasivo, 0, 2))))}
                         </td>
-                        <td style={{ padding: '10px', textAlign: 'center', width: `${firstColumnWidth-100}px` }}>
-                        {(getValue(dataCorrientes, 1, 2)/360)*(360/(getValue(dataVentas, 0, 2)/getValue(dataCorrientes, 1, 2)))+
-                        ((getValue(dataCorrientes, 2,2)/360)*(360/(getValue(dataVentas, 1, 2)/getValue(dataCorrientes, 2,2))))-
-                        ((getValue(dataPasivo,0,2)/360)*(360/(getValue(dataVentas,1,2)/getValue(dataPasivo,0,2))))}
-                        </td>
-                    </tr>                    
+                    </tr>
                 </tbody>
             </table>
+
         </div>
     );
 };
